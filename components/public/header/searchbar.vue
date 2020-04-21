@@ -33,8 +33,8 @@
       <el-col :span="6" class="right">
         <ul class="security">
           <li><i class="refund" /><p class="txt">随时退</p></li>
-          <li><i class="refund" /><p class="txt">不满意面单</p></li>
-          <li><i class="refund" /><p class="txt">过期退</p></li>
+          <li><i class="single" /><p class="txt">不满意免单</p></li>
+          <li><i class="overdue" /><p class="txt">过期退</p></li>
         </ul>
       </el-col>
     </el-row>
@@ -65,11 +65,13 @@ export default {
     },
     blur () {
       const _this = this
+      // 使得点击热门搜索选项能够实现
       setTimeout(function () {
         _this.isFocus = false
       }, 200)
     },
     input (e) {
+      // 触发更新hotPlace和searchList
       // console.log('input')
       // console.log(e)
     }
