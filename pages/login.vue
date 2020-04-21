@@ -2,13 +2,13 @@
  * @Author: zhoulin
  * @Date: 2020-04-20 15:10:48
  * @LastEditors: your name
- * @LastEditTime: 2020-04-20 15:14:42
+ * @LastEditTime: 2020-04-21 17:13:23
  * @Description: file content
  -->
 <template>
   <div class="page-login">
     <div class="login-header">
-      <a href="/" class="logo" />
+      <a href="//s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" class="logo" />
     </div>
     <div class="login-panel">
       <div class="banner">

@@ -23,9 +23,7 @@ router.post('/signup', async (ctx) => {
         }
         return false
       } else {
-        console.log('a')
         const user = await User.find({ username })
-        console.log('b')
         if (user.length) {
           ctx.body = {
             code: -1,
@@ -33,10 +31,7 @@ router.post('/signup', async (ctx) => {
           }
           return false
         }
-        console.log('c')
         const nuser = await User.create({ username, password, email })
-        console.log(nuser)
-        console.log('d')
         if (nuser) {
           const res = await axios.post('/users/signin', { username, password })
           if (res.data && res.data.code === 0) {
@@ -126,7 +121,7 @@ router.post('/verify', async (ctx, next) => {
   }
   await transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return console.log(error)
+      return error
     } else {
       Store.hmset(`nodemail:${ko.user}`, 'code', ko.code, 'expire', ko.expire, 'email', ko.email)
     }
