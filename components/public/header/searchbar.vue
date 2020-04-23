@@ -10,17 +10,18 @@
           <button class="el-button el-button--primary"><i class="el-icon-search" /></button>
           <dl v-if="isHotPlace" class="hotPlace">
             <dt>热门搜索</dt>
-            <dd v-for="(item, idx) in hotPlace" :key="idx">{{ item }}</dd>
+            <dd v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx">{{ item.name }}</dd>
           </dl>
           <dl v-if="isSearchList" class="searchList">
-            <dd v-for="(item, idx) in searchList" :key="idx">{{ item }}</dd>
+            <dd v-for="(item, idx) in searchList" :key="idx">{{ item.name }}</dd>
           </dl>
         </div>
         <p class="suggset">
+          <!-- <a href="#">故宫博物院故宫博物院</a>
           <a href="#">故宫博物院</a>
           <a href="#">故宫博物院</a>
-          <a href="#">故宫博物院</a>
-          <a href="#">故宫博物院</a>
+          <a href="#">故宫博物院</a> -->
+          <a v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx" href="#">{{ item.name }}</a>
         </p>
         <ul class="nav">
           <li><nuxt-link to="/" class="takeout">美团外卖</nuxt-link></li>
@@ -42,13 +43,14 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   data () {
     return {
       isFocus: false,
       search: '',
-      hotPlace: ['火锅', '烧烤', '黄焖鸡'],
-      searchList: ['日料', '泰国美食', '广东美食']
+      hotPlace: [],
+      searchList: []
     }
   },
   computed: {
@@ -70,11 +72,20 @@ export default {
         _this.isFocus = false
       }, 200)
     },
-    input (e) {
-      // 触发更新hotPlace和searchList
-      // console.log('input')
-      // console.log(e)
-    }
+    // 触发更新hotPlace和searchList
+    input: _.debounce(async function () {
+      const self = this
+      // const city = self.$store.state.geo.position.city.replace('市', '')
+      const city = '天津'
+      self.searchList = []
+      const { data: { top } } = await self.$axios.get('/search/top', {
+        params: {
+          input: self.search,
+          city
+        }
+      })
+      self.searchList = top.slice(0, 10)
+    }, 300)
   }
 }
 </script>

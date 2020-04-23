@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-20 15:10:48
  * @LastEditors: your name
- * @LastEditTime: 2020-04-21 17:13:23
+ * @LastEditTime: 2020-04-22 08:24:18
  * @Description: file content
  -->
 <template>
@@ -53,6 +53,9 @@ export default {
             location.href = '/'
           } else {
             self.error = data.msg
+            setTimeout(() => {
+              self.error = ''
+            }, 1500)
           }
         } else {
           self.error = `服务器出错`
