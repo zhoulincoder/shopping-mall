@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 19:03:20
  * @LastEditors: your name
- * @LastEditTime: 2020-04-23 21:05:26
+ * @LastEditTime: 2020-04-24 09:10:39
  * @Description: file content
  */
 import Router from 'koa-router'
@@ -38,6 +38,20 @@ router.get('/hotPlace', async (ctx) => {
   })
   ctx.body = {
     result: status === 200 ? result : []
+  }
+})
+
+router.get('/resultsByKeywords', async (ctx) => {
+  const { city, keyword } = ctx.query
+  const { status, data: { count, pois } } = await axios.get('http://cp-tools.cn/search/resultsByKeywords', {
+    params: {
+      city,
+      keyword
+    }
+  })
+  ctx.body = {
+    count: status === 200 ? count : 0,
+    pois: status === 200 ? pois : []
   }
 })
 

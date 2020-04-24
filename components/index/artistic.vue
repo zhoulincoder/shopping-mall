@@ -1,6 +1,6 @@
 <template>
   <section class="m-istyle">
-    <dl>
+    <dl @mouseover="over">
       <dt>有格调</dt>
       <dd
         :class="{active: kind === 'all'}"
@@ -28,6 +28,18 @@
         keyword="旅游"
       >品质出游</dd>
     </dl>
+    <ul class="ibody">
+      <li v-for="(item, index) in cur" :key="index">
+        <el-card :body-style="{ padding: '0px'}" shadow="never">
+          <img :src="item.img" class="image">
+          <ul class="cbody">
+            <li class="title">{{ item.title }} </li>
+            <li class="pos"><span>{{ item.pos }}</span></li>
+            <li class="price">￥<em>{{ item.price }}</em><span>起</span></li>
+          </ul>
+        </el-card>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -35,7 +47,79 @@
 export default {
   data () {
     return {
-      kind: 'all'
+      kind: 'all',
+      list: {
+        all: [],
+        part: [],
+        spa: [],
+        movie: [],
+        travel: []
+      }
+    }
+  },
+  computed: {
+    cur () {
+      return this.list[this.kind]
+    }
+  },
+  async mounted () {
+    const self = this
+    const { status, data: { count, pois } } = await self.$axios.get('/search/resultsByKeywords', {
+      params: {
+        keyword: '景点',
+        // city: self.$store.state.geo.position.city
+        city: '天津'
+      }
+    })
+    if (status === 200 && count > 0) {
+      // 对没有图片的数据过滤掉
+      // 自己开发的时候定义数据，前后端联调的时候map映射
+      const r = pois.filter(item => item.photos.length).map((item) => {
+        return {
+          title: item.name,
+          pos: item.type.split(';')[0],
+          price: item.biz_ext.cost || '暂无',
+          img: item.photos[0].url,
+          url: '//abc.com'
+        }
+      })
+      self.list[self.kind] = r.slice(0, 9)
+    } else {
+      self.list[self.kind] = {}
+    }
+  },
+  methods: {
+    async over (e) {
+      const dom = e.target
+      const tag = dom.tagName.toLowerCase()
+      const self = this
+      if (tag === 'dd') {
+        this.kind = dom.getAttribute('kind')
+        const keyword = dom.getAttribute('keyword')
+        const { status, data: { count, pois } } = await self.$axios.get('/search/resultsByKeywords', {
+          params: {
+            keyword,
+            // city: self.$store.state.geo.position.city
+            city: '天津'
+          }
+        })
+        if (status === 200 && count > 0) {
+          // 对没有图片的数据过滤掉
+          // 自己开发的时候定义数据，前后端联调的时候map映射
+          const r = pois.filter(item => item.photos.length).map((item) => {
+            return {
+              title: item.name,
+              pos: item.type.split(';')[0],
+              price: item.biz_ext.cost || '暂无',
+              img: item.photos[0].url,
+              url: '//abc.com'
+            }
+          })
+          self.list[self.kind] = r.slice(0, 6)
+        } else {
+          self.list[self.kind] = []
+        }
+      }
     }
   }
 }
