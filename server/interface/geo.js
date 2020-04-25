@@ -2,11 +2,11 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 12:11:45
  * @LastEditors: your name
- * @LastEditTime: 2020-04-23 09:06:20
+ * @LastEditTime: 2020-04-25 11:19:16
  * @Description: file content
  */
 import Router from 'koa-router'
-import Province from '../dbs/models/province'
+// import Province from '../dbs/models/province'
 import axios from './utils/axios'
 
 const router = new Router({ prefix: '/geo' })
@@ -44,14 +44,57 @@ router.get('/menu', async (ctx) => {
 })
 
 router.get('/province', async (ctx) => {
-  const province = await Province.find()
+  // const province = await Province.find()
+  // ctx.body = {
+  //   province: province.map((item) => {
+  //     return {
+  //       id: item.id,
+  //       name: item.value[0]
+  //     }
+  //   })
+  // }
+  const { status, data: { province } } = await axios.get('http://cp-tools.cn/geo/province')
   ctx.body = {
-    province: province.map((item) => {
-      return {
-        id: item.id,
-        name: item.value[0]
-      }
-    })
+    province: status === 200 ? province : []
+  }
+})
+
+router.get('/province/:id', async (ctx) => {
+  const { status, data: { city } } = await axios.get(`http://cp-tools.cn/geo/province/${ctx.params.id}?sign=${sign}`)
+  if (status === 200) {
+    ctx.body = {
+      city
+    }
+  } else {
+    ctx.body = {
+      city: []
+    }
+  }
+})
+
+router.get('/city', async (ctx) => {
+  const { status, data: { city } } = await axios.get('http://cp-tools.cn/geo/city')
+  if (status === 200) {
+    ctx.body = {
+      city
+    }
+  } else {
+    ctx.body = {
+      city: []
+    }
+  }
+})
+
+router.get('/hotCity', async (ctx) => {
+  const { status, data: { hots } } = await axios.get('http://cp-tools.cn/geo/hotCity')
+  if (status === 200) {
+    ctx.body = {
+      hots
+    }
+  } else {
+    ctx.body = {
+      hots: []
+    }
   }
 })
 

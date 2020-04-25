@@ -1,0 +1,43 @@
+<!--
+ * @Author: zhoulin
+ * @Date: 2020-04-24 10:42:29
+ * @LastEditors: your name
+ * @LastEditTime: 2020-04-25 19:10:39
+ * @Description: file content
+ -->
+<template>
+  <div class="page-changeCity">
+    <el-row>
+      <el-col :span="24">
+        <iSelect />
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <hot />
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <category />
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+import iSelect from '@/components/changeCity/iselect'
+import Hot from '@/components/changeCity/hot'
+import Category from '@/components/changeCity/category'
+export default {
+  components: {
+    iSelect,
+    Hot,
+    Category
+  }
+}
+</script>
+
+<style>
+
+</style>
