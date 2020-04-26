@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-20 15:10:48
  * @LastEditors: your name
- * @LastEditTime: 2020-04-22 08:24:18
+ * @LastEditTime: 2020-04-26 15:51:30
  * @Description: file content
  -->
 <template>
@@ -12,7 +12,12 @@
     </div>
     <div class="login-panel">
       <div class="banner">
-        <img src="//s0.meituan.net/bs/file/?f=fe-sso-fs:build/page/static/banner/www.jpg" width="480" height="370" alt="美团网">
+        <img
+          src="//s0.meituan.net/bs/file/?f=fe-sso-fs:build/page/static/banner/www.jpg"
+          width="480"
+          height="370"
+          alt="美团网"
+        >
       </div>
       <div class="form">
         <h4 v-if="error" class="tips"><i />{{ error }}</h4>
@@ -23,7 +28,12 @@
           <el-checkbox v-model="checked">7天内自动登录</el-checkbox>
           <b>忘记密码？</b>
         </div>
-        <el-button @click="login" class="btn-login" type="success" size="mini">登录</el-button>
+        <el-button
+          @click="login"
+          class="btn-login"
+          type="success"
+          size="mini"
+        >登录</el-button>
       </div>
     </div>
   </div>

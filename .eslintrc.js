@@ -16,6 +16,8 @@ module.exports = {
     'nuxt/no-cjs-in-config': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/multiline-html-element-content-newline': 'off',
-    "vue/max-attributes-per-line": "off",
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 3
+    }],
   }
 }

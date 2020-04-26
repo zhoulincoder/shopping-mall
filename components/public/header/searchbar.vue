@@ -2,26 +2,36 @@
   <div class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
-        <img src="https://s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" alt="美团">
+        <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt="美团">
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
-          <el-input v-model="search" @focus="focus" @blur="blur" @input="input" placeholder="搜索商家或地点" />
+          <el-input
+            v-model="search"
+            @focus="focus"
+            @blur="blur"
+            @input="input"
+            placeholder="搜索商家或地点"
+          />
           <button class="el-button el-button--primary"><i class="el-icon-search" /></button>
           <dl v-if="isHotPlace" class="hotPlace">
             <dt>热门搜索</dt>
-            <dd v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx">{{ item.name }}</dd>
+            <dd v-for="(item,idx) in $store.state.home.hotPlace.slice(0,5)" :key="idx">
+              <a :href="'/products?keyword='+encodeURIComponent(item.name)">{{ item.name }}</a>
+            </dd>
           </dl>
           <dl v-if="isSearchList" class="searchList">
-            <dd v-for="(item, idx) in searchList" :key="idx">{{ item.name }}</dd>
+            <dd v-for="(item,idx) in searchList" :key="idx">
+              <a :href="'/products?keyword='+encodeURIComponent(item.name)">{{ item.name }}</a>
+            </dd>
           </dl>
         </div>
-        <p class="suggset">
-          <!-- <a href="#">故宫博物院故宫博物院</a>
-          <a href="#">故宫博物院</a>
-          <a href="#">故宫博物院</a>
-          <a href="#">故宫博物院</a> -->
-          <a v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx" href="#">{{ item.name }}</a>
+        <p class="suggest">
+          <a
+            v-for="(item,idx) in $store.state.home.hotPlace.slice(0,5)"
+            :key="idx"
+            :href="'/products?keyword='+encodeURIComponent(item.name)"
+          >{{ item.name }}</a>
         </p>
         <ul class="nav">
           <li><nuxt-link to="/" class="takeout">美团外卖</nuxt-link></li>
@@ -47,8 +57,8 @@ import _ from 'lodash'
 export default {
   data () {
     return {
-      isFocus: false,
       search: '',
+      isFocus: false,
       hotPlace: [],
       searchList: []
     }
@@ -66,13 +76,11 @@ export default {
       this.isFocus = true
     },
     blur () {
-      const _this = this
-      // 使得点击热门搜索选项能够实现
+      const self = this
       setTimeout(function () {
-        _this.isFocus = false
+        self.isFocus = false
       }, 200)
     },
-    // 触发更新hotPlace和searchList
     input: _.debounce(async function () {
       const self = this
       // const city = self.$store.state.geo.position.city.replace('市', '')
@@ -90,6 +98,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="css">
 </style>
