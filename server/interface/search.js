@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 19:03:20
  * @LastEditors: your name
- * @LastEditTime: 2020-04-24 09:10:39
+ * @LastEditTime: 2020-04-28 09:14:34
  * @Description: file content
  */
 import Router from 'koa-router'
@@ -55,4 +55,28 @@ router.get('/resultsByKeywords', async (ctx) => {
   }
 })
 
+router.get('/products', async (ctx) => {
+  const keyword = ctx.query.keyword || '旅游'
+  const city = ctx.query.city || '北京'
+  const { status, data: { product, more } } = await axios.get('http://cp-tools.cn/search/products', {
+    params: {
+      keyword,
+      city
+      // sign
+    }
+  })
+  if (status === 200) {
+    ctx.body = {
+      product,
+      more: ctx.isAuthenticated() ? more : [], // 判断登录
+      login: ctx.isAuthenticated()
+    }
+  } else {
+    ctx.body = {
+      product: {},
+      more: ctx.isAuthenticated() ? more : [],
+      login: ctx.isAuthenticated()
+    }
+  }
+})
 export default router

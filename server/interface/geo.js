@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 12:11:45
  * @LastEditors: your name
- * @LastEditTime: 2020-04-26 11:16:14
+ * @LastEditTime: 2020-04-30 19:36:40
  * @Description: file content
  */
 import Router from 'koa-router'
@@ -11,18 +11,22 @@ import axios from './utils/axios'
 
 const router = new Router({ prefix: '/geo' })
 const sign = 'abcdefg'
-router.get('/getPosition', async (ctx) => {
-  const { status, data: { province, city } } = await axios.get('http://cp-tools.cn/geo/getPosition')
-  if (status === 200) {
-    ctx.body = {
-      province,
-      city
-    }
-  } else {
-    ctx.body = {
-      province: '',
-      city: ''
-    }
+router.get('/getPosition', (ctx) => {
+  // const { status, data: { province, city } } = await axios.get('http://cp-tools.cn/geo/getPosition')
+  // if (status === 200) {
+  //   ctx.body = {
+  //     province,
+  //     city
+  //   }
+  // } else {
+  //   ctx.body = {
+  //     province: '',
+  //     city: ''
+  //   }
+  // }
+  ctx.body = {
+    province: '',
+    city: '北京市'
   }
 })
 

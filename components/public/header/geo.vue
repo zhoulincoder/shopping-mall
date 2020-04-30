@@ -13,6 +13,11 @@
 
 <script>
 export default {
+  created () {
+    // const res = sessionStorage.getItem('userCity')
+    // const rr = localStorage.getItem('userItem')
+    // console.log(rr)
+  }
 
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 15:45:05
  * @LastEditors: your name
- * @LastEditTime: 2020-04-23 21:11:42
+ * @LastEditTime: 2020-04-29 20:30:23
  * @Description: file content
  */
 // import Vue from 'vue'
@@ -29,7 +29,12 @@
 //   }
 // })
 // export default store
-
+// import vuexPersistedstate from 'vuex-persistedstate'
+// export const plugins = {
+//   vuexPersistedstate({
+//     storage:sessionStorage
+//   })(store)
+// }
 export const actions = {
   // nuxt中生命周期
   async nuxtServerInit ({ commit }, { req, app }) {
@@ -42,7 +47,7 @@ export const actions = {
     const { status: status3, data: { result } } = await app.$axios.get('search/hotPlace', {
       params: {
         // city: app.store.state.geo.position.city.replace('市', '')
-        city: '天津'
+        city: '北京'
       }
     })
     commit('home/setHotPlace', status3 === 200 ? result : [])

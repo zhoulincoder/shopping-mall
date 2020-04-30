@@ -83,8 +83,8 @@ export default {
     },
     input: _.debounce(async function () {
       const self = this
-      // const city = self.$store.state.geo.position.city.replace('市', '')
-      const city = '天津'
+      const city = self.$store.state.geo.position.city.replace('市', '')
+      // const city = '天津'
       self.searchList = []
       const { data: { top } } = await self.$axios.get('/search/top', {
         params: {

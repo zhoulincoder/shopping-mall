@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-26 10:09:56
  * @LastEditors: your name
- * @LastEditTime: 2020-04-26 16:06:24
+ * @LastEditTime: 2020-04-30 19:35:30
  * @Description: file content
  -->
 <template>
@@ -45,10 +45,10 @@ export default {
     }
   },
   async asyncData (ctx) {
-    console.log('sss')
+    // console.log('sss')
     const keyword = ctx.query.keyword
-    // const city = ctx.store.state.geo.position.city
-    const city = '北京'
+    const city = ctx.store.state.geo.position.city
+    // const city = '北京'
     const { status, data: { count, pois } } = await ctx.$axios.get('/search/resultsByKeywords', {
       params: {
         keyword,
@@ -60,8 +60,7 @@ export default {
         city
       }
     })
-    console.log(count, areas, types)
-
+    // console.log(count, areas, types)
     if (status === 200 && count > 0 && status2 === 200) {
       return {
         list: pois.filter(item => item.photos.length).map((item) => {

@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     navSelect () {
-      // console.log('select')
+      // console.log('做排序')
     }
   }
 }

@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-25 18:32:45
  * @LastEditors: your name
- * @LastEditTime: 2020-04-25 19:10:23
+ * @LastEditTime: 2020-04-30 19:31:19
  * @Description: file content
  -->
 <template>
@@ -16,7 +16,7 @@
     <dl v-for="item in block" :key="item.title" class="m-category-section">
       <dt :id="'city-' + item.title">{{ item.title }}</dt>
       <dd>
-        <span v-for="c in item.city" :key="c">{{ c }}</span>
+        <span v-for="c in item.city" :key="c" @click="selectCity">{{ c }}</span>
       </dd>
     </dl>
   </div>
@@ -58,6 +58,13 @@ export default {
       }
       blocks.sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
       self.block = blocks
+    }
+  },
+  methods: {
+    selectCity (e) {
+      // this.$store.commit('geo/setPosition', { city: e.target.innerHTML, province: '' })
+      // // location.href = '/' 会丢失vuex中数据
+      // this.$router.push({ path: '/' })
     }
   }
 }
