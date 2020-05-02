@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 12:11:45
  * @LastEditors: your name
- * @LastEditTime: 2020-04-30 19:36:40
+ * @LastEditTime: 2020-05-01 16:47:40
  * @Description: file content
  */
 import Router from 'koa-router'
@@ -26,7 +26,7 @@ router.get('/getPosition', (ctx) => {
   // }
   ctx.body = {
     province: '',
-    city: '北京市'
+    city: '北京'
   }
 })
 

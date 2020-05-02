@@ -57,6 +57,7 @@ export default {
         }
       })
       if (status === 200 && code === 0) {
+        // 通过购物车id来跳转到指定的购物车
         window.location.href = `/cart/?id=${id}`
       } else {
         // console.log('error')

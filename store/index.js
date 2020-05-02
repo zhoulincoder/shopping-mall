@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-22 15:45:05
  * @LastEditors: your name
- * @LastEditTime: 2020-04-29 20:30:23
+ * @LastEditTime: 2020-05-01 15:14:44
  * @Description: file content
  */
 // import Vue from 'vue'
@@ -46,8 +46,7 @@ export const actions = {
 
     const { status: status3, data: { result } } = await app.$axios.get('search/hotPlace', {
       params: {
-        // city: app.store.state.geo.position.city.replace('市', '')
-        city: '北京'
+        city: app.store.state.geo.position.city.replace('市', '')
       }
     })
     commit('home/setHotPlace', status3 === 200 ? result : [])

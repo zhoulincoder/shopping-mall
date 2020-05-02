@@ -11,7 +11,8 @@ import users from './interface/users'
 import geo from './interface/geo'
 import search from './interface/search'
 import category from './interface/category'
-// import cart from './interface/cart'
+import cart from './interface/cart'
+import order from './interface/order'
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
@@ -56,7 +57,8 @@ async function start () {
   app.use(geo.routes()).use(geo.allowedMethods())
   app.use(search.routes()).use(search.allowedMethods())
   app.use(category.routes()).use(category.allowedMethods())
-  // app.use(cart.routes()).use(cart.allowedMethods())
+  app.use(cart.routes()).use(cart.allowedMethods())
+  app.use(order.routes()).use(order.allowedMethods())
   app.use((ctx) => {
     ctx.status = 200 // koa defaults to 404 when it sees that status is unset
 

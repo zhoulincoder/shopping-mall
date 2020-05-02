@@ -1,17 +1,29 @@
 <template>
-  <div class="m-product-category">
+  <div class="m-product-categroy">
     <dl class="classic">
       <dt>分类</dt>
       <dt>全部</dt>
-      <dd v-for="(item,idx) in types" :key="idx" class="sss">
-        <iselect :name="item.type" :list="item.module" />
+      <dd
+        v-for="(item,idx) in types"
+        :key="idx"
+      >
+        <iselect
+          :name="item.type"
+          :list="item.module"
+        />
       </dd>
     </dl>
     <dl class="classic">
       <dt>分类</dt>
       <dt>全部</dt>
-      <dd v-for="(item,idx) in areas" :key="idx">
-        <iselect :name="item.type" :list="item.module" />
+      <dd
+        v-for="(item,idx) in areas"
+        :key="idx"
+      >
+        <iselect
+          :name="item.type"
+          :list="item.module"
+        />
       </dd>
     </dl>
   </div>
@@ -41,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .m-product-category{
+  .m-product-categroy{
     padding: 15px 20px 0;
     background: #FFF;
     border: 1px solid #E5E5E5;
