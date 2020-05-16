@@ -11,12 +11,13 @@
 
       .site-logo {
         display: inline-block;
-        width: 128px;
-        width: 54px;
+        // width: 128px;
+        width: 68px;
         height: 36px;
         text-indent: -9999px;
-        background-position: -669px -748px;
-        background-image: url(//s0.meituan.net/bs/file/?f=fe-sso-fs:build/assets/sp-normal.2ee5c09.png);
+        // background-position: -669px -748px;
+        background-position: -5px 0;
+        background-image: url(//ww1.sinaimg.cn/large/007c2SgJgy1geg6rdxgjjj3023012wen.jpg);
       }
 
       .login {
@@ -46,5 +47,8 @@
     .error {
       color: red;
     }
+  }
+  .btn-login, .btn-register {
+    background-color: #2db3a6;
   }
 }

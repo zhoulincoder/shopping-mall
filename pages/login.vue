@@ -2,13 +2,13 @@
  * @Author: zhoulin
  * @Date: 2020-04-20 15:10:48
  * @LastEditors: your name
- * @LastEditTime: 2020-04-26 15:51:30
+ * @LastEditTime: 2020-05-03 10:53:21
  * @Description: file content
  -->
 <template>
   <div class="page-login">
     <div class="login-header">
-      <a href="//s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" class="logo" />
+      <a href="/" class="logo" />
     </div>
     <div class="login-panel">
       <div class="banner">
@@ -16,7 +16,7 @@
           src="//s0.meituan.net/bs/file/?f=fe-sso-fs:build/page/static/banner/www.jpg"
           width="480"
           height="370"
-          alt="美团网"
+          alt="img"
         >
       </div>
       <div class="form">

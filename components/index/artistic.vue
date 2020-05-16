@@ -68,7 +68,6 @@ export default {
       params: {
         keyword: '景点',
         city: self.$store.state.geo.position.city
-        // city: '北京'
       }
     })
     if (status === 200 && count > 0) {
@@ -100,7 +99,6 @@ export default {
           params: {
             keyword,
             city: self.$store.state.geo.position.city
-            // city: '天津'
           }
         })
         if (status === 200 && count > 0) {

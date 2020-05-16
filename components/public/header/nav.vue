@@ -2,7 +2,7 @@
   <div class="m-nav">
     <ul class="nav">
       <li class="list">
-        <nuxt-link to="my">我的美团</nuxt-link>
+        <nuxt-link to="my">个人中心</nuxt-link>
         <dl>
           <dd><nuxt-link to="/order">我的订单</nuxt-link></dd>
           <dd><nuxt-link to="/order">我的收藏</nuxt-link></dd>
@@ -57,19 +57,19 @@
           <dl class="app">
             <dt>手机应用</dt>
             <dd>
-              <a href="#"><img src="https://s0.meituan.net/bs/fe-web-meituan/2d53095/img/appicons/meituan.png" title="美团app" alt="美团app"></a>
+              <a href="#"><img src="//ww1.sinaimg.cn/large/007c2SgJgy1gef2b9mrhnj302x02swex.jpg" title="爱淘app" alt="爱淘app"></a>
             </dd>
             <dd>
-              <a href="#"><img src="https://s0.meituan.net/bs/fe-web-meituan/2d53095/img/appicons/meituan.png" title="美团app" alt="美团app"></a>
+              <a href="#"><img src="//ww1.sinaimg.cn/large/007c2SgJgy1gef2b9mrhnj302x02swex.jpg" title="爱淘app" alt="爱淘app"></a>
             </dd>
             <dd>
-              <a href="#"><img src="https://s0.meituan.net/bs/fe-web-meituan/2d53095/img/appicons/meituan.png" title="美团app" alt="美团app"></a>
+              <a href="#"><img src="//ww1.sinaimg.cn/large/007c2SgJgy1gef2b9mrhnj302x02swex.jpg" title="爱淘app" alt="爱淘app"></a>
             </dd>
             <dd>
-              <a href="#"><img src="https://s0.meituan.net/bs/fe-web-meituan/2d53095/img/appicons/meituan.png" title="美团app" alt="美团app"></a>
+              <a href="#"><img src="//ww1.sinaimg.cn/large/007c2SgJgy1gef2b9mrhnj302x02swex.jpg" title="爱淘app" alt="爱淘app"></a>
             </dd>
             <dd>
-              <a href="#"><img src="https://s0.meituan.net/bs/fe-web-meituan/2d53095/img/appicons/meituan.png" title="美团app" alt="美团app"></a>
+              <a href="#"><img src="//ww1.sinaimg.cn/large/007c2SgJgy1gef2b9mrhnj302x02swex.jpg" title="爱淘app" alt="爱淘app"></a>
             </dd>
           </dl>
         </div>

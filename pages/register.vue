@@ -6,7 +6,7 @@
         <span class="login">
           <em class="bold">已有账号？</em>
           <a href="/login">
-            <el-button type="primary" size="small">登录</el-button>
+            <el-button type="primary" size="small" class="btn-login">登录</el-button>
           </a>
         </span>
       </header>
@@ -37,11 +37,11 @@
           <el-input v-model="ruleForm.cpwd" type="password" />
         </el-form-item>
         <el-form-item>
-          <el-button @click="register" type="primary">同意以下协议并注册</el-button>
+          <el-button @click="register" class="btn-register" type="primary">同意以下协议并注册</el-button>
           <div class="error">{{ error }}</div>
         </el-form-item>
         <el-form-item>
-          <a href="https://rules-center.meituan.com/rules-detail/4" class="f1" target="_blank">《美团点评用户服务协议》</a>
+          <a href="https://rules-center.meituan.com/rules-detail/4" class="f1" target="_blank">《用户服务协议》</a>
         </el-form-item>
       </el-form>
     </section>
@@ -88,7 +88,6 @@ export default {
           },
           trigger: 'blur'
         }]
-
       }
     }
   },

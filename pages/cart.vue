@@ -2,7 +2,7 @@
  * @Author: zhoulin
  * @Date: 2020-04-30 20:16:34
  * @LastEditors: your name
- * @LastEditTime: 2020-05-02 08:22:18
+ * @LastEditTime: 2020-05-05 09:34:42
  * @Description: file content
  -->
 <template>
@@ -12,7 +12,7 @@
         <list :cart-data="cart" />
         <p>应付金额：<em class="money">￥{{ total }}</em></p>
         <div class="post">
-          <el-button @click="submit" type="primary">提交订单</el-button>
+          <el-button @click="submit" type="primary" class="bt-submit">提交订单</el-button>
         </div>
       </el-col>
       <el-col v-else class="empty">购物车为空</el-col>
@@ -67,7 +67,7 @@ export default {
       if (status === 200 && code === 0) {
         window.location.href = '/order'
       } else {
-        console.log('error')
+        throw new Error('创建表单失败')
       }
     }
   }

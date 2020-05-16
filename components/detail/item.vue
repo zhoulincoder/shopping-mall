@@ -1,14 +1,8 @@
 <template>
-  <li
-    v-if="meta.photos.length"
-    class="m-detail-item"
-  >
+  <li v-if="meta.photos.length" class="m-detail-item">
     <dl class="section">
       <dd>
-        <img
-          :src="meta.photos[0].url"
-          :alt="meta.photos[0].title"
-        >
+        <img :src="meta.photos[0].url" :alt="meta.photos[0].title">
       </dd>
       <dd>
         <h4>{{ meta.name }}</h4>
@@ -22,11 +16,7 @@
         </p>
       </dd>
       <dd>
-        <el-button
-          @click="createCart"
-          type="warning"
-          round
-        >立即抢购</el-button>
+        <el-button @click="createCart" type="warning" round>立即抢购</el-button>
       </dd>
     </dl>
   </li>

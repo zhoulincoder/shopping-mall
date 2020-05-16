@@ -37,7 +37,7 @@ export default {
   },
   data () {
     return {
-      sale: 70 + Math.floor(Math.random() * 300)
+      // sale: 70 + Math.floor(Math.random() * 300)
     }
   },
   computed: {

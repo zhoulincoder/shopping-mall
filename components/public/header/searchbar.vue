@@ -2,7 +2,7 @@
   <div class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
-        <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt="美团">
+        <img src="//ww1.sinaimg.cn/large/007c2SgJgy1gee21b3x0tj308c02s3z7.jpg" alt="爱淘" width="100%">
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
@@ -36,7 +36,7 @@
         <ul class="nav">
           <li><nuxt-link to="/" class="takeout">美团外卖</nuxt-link></li>
           <li><nuxt-link to="/" class="movie">猫眼电影</nuxt-link></li>
-          <li><nuxt-link to="/" class="hotel">美团酒店</nuxt-link></li>
+          <li><nuxt-link to="/" class="hotel">特色酒店</nuxt-link></li>
           <li><nuxt-link to="/" class="apartment">民宿/公寓</nuxt-link></li>
           <li><nuxt-link to="/" class="business">商家入驻</nuxt-link></li>
         </ul>
